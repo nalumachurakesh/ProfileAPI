@@ -4,6 +4,10 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using Business.Profile.BusinessLogic;
+using Business.Profile.BusinessLogic.Interfaces;
+using Data.Profile.Repositories;
+using Data.Profile.Repositories.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -13,6 +17,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Service.Profile.Services;
+using Service.Profile.Services.Interfaces;
 
 namespace ProfileAPI
 {
@@ -44,6 +50,11 @@ namespace ProfileAPI
                 c.IncludeXmlComments(xmlPath);
             });
 
+
+            //Dependency Injection
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserBusinessLogic, UserBusinessLogic>();
+            services.AddScoped<IUserService, UserService>();
 
         }
 
