@@ -23,6 +23,10 @@ namespace ProfileAPI.Controllers
             _logger = logger;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
