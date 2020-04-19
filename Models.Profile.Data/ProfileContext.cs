@@ -7,7 +7,7 @@ namespace Models.Profile.Data
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string connectionString = "Server = .; Database =  ProfileData; Truested_Connection = True";
+            string connectionString = "Server = .; Database =  ProfileData; Trusted_Connection = True";
             optionsBuilder.UseSqlServer(connectionString);
         }  
 
