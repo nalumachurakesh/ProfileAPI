@@ -10,7 +10,7 @@ namespace Models.Profile.Data.Entities
         {
             UserAddresses = new List<UserAddress>();
         }
-        public long Id { get; set; }
+        public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public bool IsRegistered { get; set; }
