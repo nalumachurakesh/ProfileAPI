@@ -17,6 +17,10 @@ namespace Models.Profile.Data.Entities
         public string ZipCode { get; set; }
         public string State { get; set; }
         public string PhoneNumber { get; set; }
+        public string CreatedBy { get; set; }
+        public DateTime CreatedDateTime { get; set; }
+        public string ModifiedBy { get; set; }
+        public DateTime? ModifiedDateTime { get; set; }
         public List<UserAddress> UserAddresses { get; set; }
 
     }

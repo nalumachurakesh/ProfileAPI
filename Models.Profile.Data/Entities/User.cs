@@ -14,6 +14,10 @@ namespace Models.Profile.Data.Entities
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public bool IsRegistered { get; set; }
+        public string CreatedBy { get; set; }
+        public DateTime CreatedDateTime { get; set; }
+        public string ModifiedBy { get; set; }
+        public DateTime? ModifiedDateTime { get; set; }
         public List<UserAddress> UserAddresses { get; set; }
     }
 }
