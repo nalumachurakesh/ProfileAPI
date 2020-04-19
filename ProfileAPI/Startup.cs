@@ -1,24 +1,20 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
 using Business.Profile.BusinessLogic;
 using Business.Profile.BusinessLogic.Interfaces;
 using Data.Profile.Repositories;
 using Data.Profile.Repositories.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Models.Profile.Data;
 using Service.Profile.Services;
 using Service.Profile.Services.Interfaces;
+using System;
+using System.IO;
+using System.Reflection;
 
 namespace ProfileAPI
 {
@@ -39,9 +35,10 @@ namespace ProfileAPI
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { 
-                    Title = "Profile API", 
-                    Version = "v1" 
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "Profile API",
+                    Version = "v1"
                 });
 
                 // Set the comments path for the Swagger JSON and UI.
@@ -55,6 +52,9 @@ namespace ProfileAPI
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserBusinessLogic, UserBusinessLogic>();
             services.AddScoped<IUserService, UserService>();
+
+            services.AddDbContext<ProfileContext>(
+                options => options.UseSqlServer(Configuration.GetConnectionString("ProfileData")));
 
         }
 
