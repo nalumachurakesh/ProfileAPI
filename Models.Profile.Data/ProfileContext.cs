@@ -5,6 +5,12 @@ namespace Models.Profile.Data
 {
     public class ProfileContext : DbContext
     {
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            string connectionString = "Server = .; Database =  ProfileData; Truested_Connection = True";
+            optionsBuilder.UseSqlServer(connectionString);
+        }  
+
         public DbSet<User> Users { get; set; }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<UserAddress> UserAddresses { get; set; }
