@@ -10,5 +10,6 @@ namespace Models.Profile.Dto.Dtos
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public bool IsRegistered { get; set; }
+        public string FullName => $"{FirstName}, {LastName}";
     }
 }
