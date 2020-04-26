@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Models.Profile.Dto.Dtos;
+using Models.Profile.Dto;
 using Service.Profile.Services.Interfaces;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -22,14 +22,14 @@ namespace Api.Profile.Controllers
 
         // GET: api/<controller>
         [HttpGet]
-        public IEnumerable<UserDto> Get()
+        public IEnumerable<UserDTO> Get()
         {
             return _userService.GetUsers();
         }
 
         // GET api/<controller>/5
         [HttpGet("{id}")]
-        public UserDto Get(long id)
+        public UserDTO Get(long id)
         {
             return _userService.GetUser(id);
         }

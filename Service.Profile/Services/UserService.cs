@@ -1,5 +1,5 @@
 ﻿using Business.Profile.BusinessLogic.Interfaces;
-using Models.Profile.Dto.Dtos;
+using Models.Profile.Dto;
 using Service.Profile.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -17,11 +17,11 @@ namespace Service.Profile.Services
             _userBusinessLogic = userBusinessLogic;
         }
 
-        UserDto IUserService.GetUser(long id)
+        UserDTO IUserService.GetUser(long id)
         {
             var user = _userBusinessLogic.GetUser(id);
 
-            return new UserDto
+            return new UserDTO
             {
                 FirstName = user.FirstName,
                 Id = user.Id,
@@ -30,11 +30,11 @@ namespace Service.Profile.Services
             };
         }
 
-        IList<UserDto> IUserService.GetUsers()
+        IList<UserDTO> IUserService.GetUsers()
         {
             var users = _userBusinessLogic.GetUsers();
 
-            return users.Select(user => new UserDto
+            return users.Select(user => new UserDTO
             {
                 FirstName = user.FirstName,
                 Id = user.Id,
