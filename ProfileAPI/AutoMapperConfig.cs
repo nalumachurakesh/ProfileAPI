@@ -10,9 +10,12 @@ namespace Api.Profile
         {
             CreateMap<User, UserDTO>().ReverseMap();
 
-            CreateMap<Address, AddressDTO>().ReverseMap();
+            CreateMap<Address, AddressDTO>().ReverseMap()
+                //Ignoring the UserAddresses property of the destination type
+                .ForMember(dest => dest.UserAddresses, act => act.Ignore());
 
             CreateMap<UserAddress, UserAddressDTO>().ReverseMap()
+                //Ignoring the User property of the destination type
                 .ForMember(dest => dest.User, act => act.Ignore());
         }
     }
