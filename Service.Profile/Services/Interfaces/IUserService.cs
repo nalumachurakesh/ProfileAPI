@@ -1,4 +1,4 @@
-﻿using Models.Profile.Dto.Dtos;
+﻿using Models.Profile.Dto;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,9 +7,9 @@ namespace Service.Profile.Services.Interfaces
 {
     public interface IUserService
     {
-        IList<UserDto> GetUsers();
+        IList<UserDTO> GetUsers();
 
-        UserDto GetUser(long id);
+        UserDTO GetUser(long id);
 
     }
 }

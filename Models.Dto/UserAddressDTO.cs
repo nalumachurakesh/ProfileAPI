@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Models.Profile.Data.Entities
+namespace Models.Profile.Dto
 {
-    public class UserAddress
+    public class UserAddressDTO
     {
         public int Id { get; set; }
         public int UserId { get; set; }
@@ -13,7 +13,7 @@ namespace Models.Profile.Data.Entities
         public DateTime CreatedDateTime { get; set; }
         public string ModifiedBy { get; set; }
         public DateTime? ModifiedDateTime { get; set; }
-        public User User { get; set; }
-        public Address Address { get; set; }
+        public UserDTO User { get; set; }
+        public AddressDTO Address { get; set; }
     }
 }

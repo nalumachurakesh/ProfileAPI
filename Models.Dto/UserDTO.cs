@@ -2,14 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Models.Profile.Data.Entities
+namespace Models.Profile.Dto
 {
-    public class User
+    public class UserDTO
     {
-        public User()
-        {
-            UserAddresses = new List<UserAddress>();
-        }
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -18,6 +14,7 @@ namespace Models.Profile.Data.Entities
         public DateTime CreatedDateTime { get; set; }
         public string ModifiedBy { get; set; }
         public DateTime? ModifiedDateTime { get; set; }
-        public List<UserAddress> UserAddresses { get; set; }
+        public List<UserAddressDTO> UserAddresses { get; set; }
+        public string FullName => $"{FirstName}, {LastName}";
     }
 }
